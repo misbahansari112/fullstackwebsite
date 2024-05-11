@@ -8,10 +8,52 @@ include("compnent/header.php");
                     <div class="bg-light rounded h-100 p-4">
                             <h6 class="mb-4">add category</h6>
                             <form method="post" enctype="multipart/form-data">
+                                
+                
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">category name</label>
+                                    <label for="exampleInputEmail1" class="form-label">product name</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1"
                                         aria-describedby="emailHelp" name="cName">
+                                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">product name</label>
+                                    <input type="text" class="form-control" name="pName"
+                                        aria-describedby="emailHelp"> 
+
+
+
+
+
+                                    
+                        
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">product price</label>
+                                    <input type="text" class="form-control" name="pPrice"
+                                        aria-describedby="emailHelp" >
+
+
+                                
+        
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">product quantity</label>
+                                    <input type="text" class="form-control" name="pQuantity"
+                                        aria-describedby="emailHelp" >
+                                    
+                    
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">product category</label>
+                                    <select class="form-select" id="floatingselect"
+                                        aria-label="Floating label select example" name="pCatId">
+                                        <option selected hidden>select anyone</option>
+                                        </?php
+                                        $query = $pdo->query("select * from categories");
+                                        $row = $query->fetchAll(PDO: :FETCH_ASSOC);
+
                                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
                                     </div>
                                 </div>
