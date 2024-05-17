@@ -1,3 +1,7 @@
+<?php
+include("php/query.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,14 +110,33 @@
 
 							<li>
 								<a href="contact.html">Contact</a>
+							</li><?php
+							if(isset($_SESSION['sessionEmail'])){
+							?>
+								<li>
+									<a href="logout.php">logout</a>
+								</li>
+							<li>
+								<a href="profile.php">profile</a>
 							</li>
+							<?php
+							}else{
+								?>
+								<li>
+								<a href="login.php">login</a>
+							</li>
+							<?php
+							}
+							?>
+							
+							
 						</ul>
 					</div>	
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-							<i class="zmdi zmdi-search"></i>
+							<i class="zmdi zmdi-search"></I>
 						</div>
 
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
@@ -157,7 +180,7 @@
 				</span>
 			</div>
 		</div>
-
+		
 
 		<!-- Menu Mobile -->
 		<div class="menu-mobile">
@@ -248,7 +271,7 @@
 		<div class="header-cart flex-col-l p-l-65 p-r-25">
 			<div class="header-cart-title flex-w flex-sb-m p-b-8">
 				<span class="mtext-103 cl2">
-					Your Cart
+					your cart
 				</span>
 
 				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
@@ -265,7 +288,7 @@
 
 						<div class="header-cart-item-txt p-t-8">
 							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								White Shirt Pleat
+								white shirt pleat
 							</a>
 
 							<span class="header-cart-item-info">
@@ -274,14 +297,15 @@
 						</div>
 					</li>
 
+
 					<li class="header-cart-item flex-w flex-t m-b-12">
 						<div class="header-cart-item-img">
 							<img src="images/item-cart-02.jpg" alt="IMG">
 						</div>
-
+						
 						<div class="header-cart-item-txt p-t-8">
 							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Converse All Star
+								converse all star
 							</a>
 
 							<span class="header-cart-item-info">
@@ -299,6 +323,7 @@
 							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
 								Nixon Porter Leather
 							</a>
+							
 
 							<span class="header-cart-item-info">
 								1 x $17.00
@@ -314,11 +339,11 @@
 
 					<div class="header-cart-buttons flex-w w-full">
 						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-							View Cart
+							view cart
 						</a>
 
 						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-							Check Out
+							check out
 						</a>
 					</div>
 				</div>
