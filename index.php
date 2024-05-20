@@ -6,15 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-    $assoc =[
-    "name"=> "ali",
-    "course"=>"full stack development",
-    "join date"=>"20-2-2024"]
-    // echo $assoc "name";
-    foreach  ($assoc as $key = $value){
-    echo $key." : "".$value."<br>"
-    }
+   
 
 
 </body>

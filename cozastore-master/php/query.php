@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('dbcon.php');
+$img_ref='../dashmin/img/category/';
 if(isset($_POST['register'])){
     $userName = $_POST['name'];
     $userPassword = $_POST['password'];

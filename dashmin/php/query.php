@@ -52,28 +52,111 @@ if ($extension == "jpg" || $extension == "jpeg" || $extension ==
 }
 
         // add product
-// if (isset($_POST['add product'])){
-//     $ProductName = $_post['pName'];
-//     $productprice = $_POST['pPrice'];
-//     $productQuantity = $_POST['pQuantity'];
-//     $productDescription = $_POST['pDescription'];
-//     $productCatId = $_POST['pCatId'];
-//     $productImageName = $_FILES['pImageName']['name'];
-//     $productTmpName = $_FILES['pImage']["tmp_name"];
-//     $extension = pathinfo($productImageName, PATHINFO_EXTENSION);
-//     $desig ="img/product/" .$productImageName;
-//     if ($EXTENSION =="png" ||$extension=="jpg" ||$extension ==
-//     "jpeg" || $extension =="webp") { 
-//         if (move_uploaded_files($productTmpName, $desig)) { 
-//             $query = $pdo->prepare("INSERT INTO  PRODUCTS(INSERT INTO `products`(`productsname`, `productprice`, `productquantity`, `productdescription`, `productImage`, `productcatid`) VALUES(:pn,:pp,:pq,:pd,:pi,:pc)");
-//             $query->bindParam("pn", $productName);
-//             $query->bindParam("pq",$productQuantity);
-//             $query->bindParam("pp",$productPrice);
-//             $query->bimdParam("pd",$productDescription);
-//             $query->bindParam("pc",$productCatId);
-//             $query->bindParam("pi",$productImageName);
-//             $query->execute();
-//             echo "<script></script>";
+//Add product
+if(isset($_POST['addproduct'])){
+    $productName = $_POST['pName'];
+    $productPrice = $_POST['pPrice'];
+    $productDescription = $_POST['pDescription'];
+    $productQuantity = $_POST['pQuantity'];
+    $productCatid = $_POST['pCatid'];
+    $productImageName = $_FILES['pImage']["name"];
+    $productTmpName = $_FILES['pImage']["tmp_name"];
+    $extension = pathinfo($productImageName,PATHINFO_EXTENSION);
+    $desig = "img/product/".$productImageName;
+    if($extension =="jpg" || $extension =="png" || $extension == "jpeg" || $extension =="webp") {
+        if(move_uploaded_file($productTmpName,$desig)){
+            $query = $pdo->prepare("INSERT INTO `products`(`productname`, `productquantity`, `productprice`, `productdescription`, `productimage`, `productcatid`) VALUES(:pn,:pq,:pp,:pd,:pi,:pc)");
+            $query->bindParam("pn", $productName);
+            $query->bindParam("pq", $productQuantity);
+            $query->bindParam("pp", $productPrice);
+            $query->bindParam("pd", $productDescription);
+            $query->bindParam("pi", $productImageName);
+            $query->bindParam("pc", $productCatid);
+            $query->execute();
+            echo "<script>alert('product added successfully')</script>";
+    
+        }else
+        {
+            echo "<script>alert('invalid file type')</script>";
+        
+        }
+    }
+    }
+
+// update product
+
+            
+          //Update product
+if(isset($_POST['updateproduct'])){
+    $productid = $_POST['pid'];
+    $productName = $_POST['pName'];
+    $productPrice = $_POST['pPrice'];
+    $productDescription = $_POST['pDescription'];
+    $productQuantity = $_POST['pQuantity'];
+    $productCatid = $_POST['pCatid'];
+    $productImageName = $_FILES['pImage']["name"];
+    $productTmpName = $_FILES['pImage']["tmp_name"];
+    $extension = pathinfo($productImageName,PATHINFO_EXTENSION);
+    $desig = "img/product/".$productImageName;
+    if($extension =="jpg" || $extension =="png" || $extension == "jpeg" || $extension =="webp") {
+        if(move_uploaded_file($productTmpName,$desig)){
+            $query = $pdo->prepare("UPDATE `products` SET `productname` = :pn, `productquantity` = :pq, `productprice` = :pp, `productdescription` = :pd, `productimage` = :pi, `productcatid` = :pc WHERE `productid` = :pid");
+            $query->bindParam("pn", $productName);
+            $query->bindParam("pq", $productQuantity);
+            $query->bindParam("pp", $productPrice);
+            $query->bindParam("pd", $productDescription);
+            $query->bindParam("pi", $productImageName);
+            $query->bindParam("pc", $productCatid);
+            $query->bindParam("pid", $productid);
+            $query->execute();
+            echo "<script>alert('product Updated successfully')
+            location.assign('viewproducts.php')
+            </script>";
+    
+        }
+        else
+        {
+            echo "<script>alert('invalid file type')</script>";
+        
+        }
+    }else{
+        $query = $pdo->prepare("UPDATE `products` SET `productname` = :pn, `productquantity` = :pq, `productprice` = :pp, `productdescription` = :pd, `productcatid` = :pc WHERE `productid` = :pid");
+        $query->bindParam("pn", $productName);
+        $query->bindParam("pq", $productQuantity);
+        $query->bindParam("pp", $productPrice);
+        $query->bindParam("pd", $productDescription);
+        $query->bindParam("pc", $productCatid);
+        $query->bindParam("pid", $productid);
+        $query->execute();
+        echo "<script>alert('product Updated successfully without image')
+        location.assign('viewproducts.php')
+        </script>";
+
+
+    }
+    }
+           
+
+           
+
+                    
+                
+
+                
+                
+                
+
+                    
+                
+                 
+
+                 
+
+ 
+
+             
+            
+                
 
 //         }
 //     }
