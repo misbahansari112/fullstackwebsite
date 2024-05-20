@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2024 at 02:19 PM
+-- Generation Time: May 20, 2024 at 12:00 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -58,6 +58,29 @@ CREATE TABLE `products` (
   `productcatid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `userID` int(11) NOT NULL,
+  `FullName` varchar(255) NOT NULL,
+  `Email` varchar(200) NOT NULL,
+  `Password` varchar(50) NOT NULL,
+  `Number` int(11) NOT NULL,
+  `role` varchar(50) NOT NULL DEFAULT 'user'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`userID`, `FullName`, `Email`, `Password`, `Number`, `role`) VALUES
+(1, 'misbah', 'admin@gmail.com', 'admin1', 3216516, 'admin'),
+(2, 'umer', 'u@gmail.com', '123', 165146546, 'user');
+
 --
 -- Indexes for dumped tables
 --
@@ -69,6 +92,12 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`catid`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`userID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -77,6 +106,12 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `categories`
   MODIFY `catid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
